@@ -16,20 +16,21 @@ def galinhabater():
         print(vidas)
         if vidas <= 0:
             tela.image = tela.imagem2
+            tela.x = ALTURA/2
+            tela.y = LARGURA/2
             galinha.kill()
             carros_group.empty()
-
-
-
-
-def carroBater():
-    galinhabater()
-
+            vidas = 0
 
 def mudarLevel():
     global galinha
     if galinha.x >= LARGURA:
         print("opa meu rei")
+
+
+def teclaSecreta():
+    galinha.x = LARGURA + 150
+
 
 LARGURA = 600
 ALTURA = 850
@@ -68,13 +69,16 @@ while True:
         if event.type == pg.QUIT:
             pg.quit()
             exit()
+        if event.type == pg.KEYDOWN:
+            if event.key == pg.K_b:
+                teclaSecreta()
 
     tela_group.draw(tela_jogo)
     galinha_group.draw(tela_jogo)
     carros_group.draw(tela_jogo)
 
     mudarLevel()
-    carroBater()
+    galinhabater()
 
     tela_group.update()
     galinha_group.update()

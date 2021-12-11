@@ -9,7 +9,7 @@ class Tela(pg.sprite.Sprite):
         ##self.imagem3 = pg.image.load("")
 
         self.imagem1 = pg.transform.scale(self.imagem1, ( 850, 600))
-        self.imagem2 = pg.transform.scale(self.imagem2, (100,200 ))
+        self.imagem2 = pg.transform.scale(self.imagem2, (200,200 ))
         ##self.imagem3 = pg.transform.scale(self.imagem3, (600, 850))
 
         self.image = self.imagem1
