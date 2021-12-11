@@ -5,11 +5,11 @@ class Tela(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.imagem1 = pg.image.load("rua-teste.jpg")
-       ## self.imagem2 = pg.image.load("")
+        self.imagem2 = pg.image.load("gameover.jpg")
         ##self.imagem3 = pg.image.load("")
 
         self.imagem1 = pg.transform.scale(self.imagem1, ( 850, 600))
-        ##self.imagem2 = pg.transform.scale(self.imagem2, (600, 850))
+        self.imagem2 = pg.transform.scale(self.imagem2, (100,200 ))
         ##self.imagem3 = pg.transform.scale(self.imagem3, (600, 850))
 
         self.image = self.imagem1

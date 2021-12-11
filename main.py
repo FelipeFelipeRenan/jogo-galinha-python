@@ -13,10 +13,13 @@ def galinhabater():
             galinha.rect.colliderect(carro_4):
         galinha.x = 0
         vidas -= 1
+        print(vidas)
         if vidas <= 0:
-            ...
+            tela.image = tela.imagem2
+            galinha.kill()
+            carros_group.empty()
 
-    print(vidas)
+
 
 
 def carroBater():
@@ -72,7 +75,6 @@ while True:
 
     mudarLevel()
     carroBater()
-
 
     tela_group.update()
     galinha_group.update()
