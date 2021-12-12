@@ -1,3 +1,5 @@
+from time import sleep
+
 from galinha import Galinha
 from carros import Carro
 from telas import Tela
@@ -6,7 +8,7 @@ from random import randint
 
 
 def galinhabater():
-    global vidas,galinha, carro_1, carro_2, carro_3, carro_4
+    global tela, vidas,galinha, carro_1, carro_2, carro_3, carro_4
 
     if galinha.rect.colliderect(carro_1) or galinha.rect.colliderect(carro_2) or galinha.rect.colliderect(carro_3) or \
             galinha.rect.colliderect(carro_4):
@@ -15,17 +17,16 @@ def galinhabater():
         print(vidas)
         if vidas <= 0:
             tela.image = tela.imagem2
-            tela.x = ALTURA/2
-            tela.y = LARGURA/2
+            tela_group.add(tela)
             galinha.kill()
             carros_group.empty()
             vidas = 0
 
 
 def mudarLevel():
-    global galinha, carro_1, carro_2, carro_3, carro_4
+    global tela,galinha, carro_1, carro_2, carro_3, carro_4
 
-    if galinha.x >= LARGURA:
+    if galinha.x >= LARGURA + 200 and not tela.image == tela.imagem3:
         carro_1 = Carro(1, 2, 1)
         carro_2 = Carro(2, 2, 1)
         carro_3 = Carro(3, 2, 1)
@@ -33,17 +34,29 @@ def mudarLevel():
         galinha_group.add(galinha)
         carros_group.empty()
         carros_group.add(carro_1, carro_2, carro_3, carro_4)
-        print("opa meu rei")
         tela.image = tela.imagem3
+        tela.setSize(0, 0)
         tela_group.add(tela)
         galinha.x = 0
-        if tela.image == tela.imagem3:
-            if galinha.x >= LARGURA:
-                print("ganhou")
 
 
 def teclaSecreta():
-    galinha.x = LARGURA + 150
+    galinha.x = LARGURA + 140
+
+
+def returnin():
+    tela.image = tela.imagem1
+
+
+def vitoria():
+    if galinha.x >= LARGURA + 150 and tela.image == tela.imagem3:
+        print("ganhou")
+        tela.image = tela.imagem4
+
+        galinha.kill()
+        carros_group.empty()
+        sleep(5)
+        returnin()
 
 
 LARGURA = 600
@@ -71,9 +84,6 @@ carro_2 = Carro(2, 1, 1)
 carro_3 = Carro(3, 1, 1)
 carro_4 = Carro(4, 1, 1)
 
-carros = [carro_1, carro_2, carro_3, carro_4]
-
-
 carros_group = pg.sprite.Group()
 carros_group.add(carro_1, carro_2, carro_3, carro_4)
 
@@ -91,13 +101,13 @@ while True:
     galinha_group.draw(tela_jogo)
     carros_group.draw(tela_jogo)
 
-    galinhabater()
-
     tela_group.update()
-    mudarLevel()
+
     galinha_group.update()
+    mudarLevel()
+    galinhabater()
     carros_group.update()
     pg.display.update()
-
+    vitoria()
 
 pg.quit()

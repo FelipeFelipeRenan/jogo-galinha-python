@@ -43,7 +43,7 @@ class Galinha(pg.sprite.Sprite):
         if self.x - self.width/2 < 0:
             self.x = self.width/2
 
-        elif self.x + self.width/2 >= 800:
+        elif self.x + self.width/2 >= 800 + 200:
             self.x = 800 - self.width/2
 
         if self.y - self.height/2 < 0:
