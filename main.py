@@ -14,13 +14,22 @@ def galinhabater():
             galinha.rect.colliderect(carro_4):
         galinha.x = 0
         vidas -= 1
+        font = pg.font.Font('freesansbold.ttf', 32)
+
+        text = font.render("Vidas: " + str(vidas), True, (0, 255, 0), (255, 0, 0))
+
+        textRect = text.get_rect()
+
+        textRect.topleft = (10, 10)
+        tela.image.blit(text, textRect)
         print(vidas)
         if vidas <= 0:
+            vidas = 0
             tela.image = tela.imagem2
             tela_group.add(tela)
             galinha.kill()
             carros_group.empty()
-            vidas = 0
+
 
 
 def mudarLevel():
@@ -55,8 +64,7 @@ def vitoria():
 
         galinha.kill()
         carros_group.empty()
-        sleep(5)
-        returnin()
+
 
 
 LARGURA = 600
@@ -86,6 +94,8 @@ carro_4 = Carro(4, 1, 1)
 
 carros_group = pg.sprite.Group()
 carros_group.add(carro_1, carro_2, carro_3, carro_4)
+
+
 
 while True:
     clock.tick(60)
