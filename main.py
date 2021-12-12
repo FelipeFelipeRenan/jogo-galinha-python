@@ -6,8 +6,7 @@ from random import randint
 
 
 def galinhabater():
-    global vidas
-    global galinha
+    global vidas,galinha, carro_1, carro_2, carro_3, carro_4
 
     if galinha.rect.colliderect(carro_1) or galinha.rect.colliderect(carro_2) or galinha.rect.colliderect(carro_3) or \
             galinha.rect.colliderect(carro_4):
@@ -22,10 +21,25 @@ def galinhabater():
             carros_group.empty()
             vidas = 0
 
+
 def mudarLevel():
-    global galinha
+    global galinha, carro_1, carro_2, carro_3, carro_4
+
     if galinha.x >= LARGURA:
+        carro_1 = Carro(1, 2, 1)
+        carro_2 = Carro(2, 2, 1)
+        carro_3 = Carro(3, 2, 1)
+        carro_4 = Carro(4, 2, 1)
+        galinha_group.add(galinha)
+        carros_group.empty()
+        carros_group.add(carro_1, carro_2, carro_3, carro_4)
         print("opa meu rei")
+        tela.image = tela.imagem3
+        tela_group.add(tela)
+        galinha.x = 0
+        if tela.image == tela.imagem3:
+            if galinha.x >= LARGURA:
+                print("ganhou")
 
 
 def teclaSecreta():
@@ -52,10 +66,10 @@ galinha = Galinha()
 galinha_group = pg.sprite.Group()
 galinha_group.add(galinha)
 
-carro_1 = Carro(1)
-carro_2 = Carro(2)
-carro_3 = Carro(3)
-carro_4 = Carro(4)
+carro_1 = Carro(1, 1, 1)
+carro_2 = Carro(2, 1, 1)
+carro_3 = Carro(3, 1, 1)
+carro_4 = Carro(4, 1, 1)
 
 carros = [carro_1, carro_2, carro_3, carro_4]
 
@@ -77,12 +91,13 @@ while True:
     galinha_group.draw(tela_jogo)
     carros_group.draw(tela_jogo)
 
-    mudarLevel()
     galinhabater()
 
     tela_group.update()
+    mudarLevel()
     galinha_group.update()
     carros_group.update()
     pg.display.update()
+
 
 pg.quit()
