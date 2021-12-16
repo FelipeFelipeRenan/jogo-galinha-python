@@ -1,22 +1,24 @@
 import pygame as pg
 
-
 class Galinha(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.x = 50
-        self.y = 800/2
+        self.y = 700/2
         self.velo = 4
-        self.width = 100
-        self.height = 50
+        self.width = 60
+        self.height = 60
 
         # Imagem do ser de asas bicudo aqui #
-        self.cococo = pg.image.load("galinha2.png")
+        self.right = pg.image.load("DW1.png")
+        self.left = pg.image.load("EW1.png")
+        self.cococo = pg.image.load("DI1.png")
 
+        self.right = pg.transform.scale(self.right, (self.width, self.height))
+        self.left = pg.transform.scale(self.left, (self.width, self.height))
         self.cococo = pg.transform.scale(self.cococo, (self.width, self.height))
 
         self.image = self.cococo
-
         self.rect = self.image.get_rect()
         self.mask = pg.mask.from_surface(self.image)
 
@@ -29,9 +31,11 @@ class Galinha(pg.sprite.Sprite):
         teclas = pg.key.get_pressed()
         if teclas[pg.K_LEFT] or teclas[pg.K_a]:
             self.x -= self.velo
+            self.image = self.left
 
         if teclas[pg.K_RIGHT] or teclas[pg.K_d]:
             self.x += self.velo
+            self.image = self.right
 
         if teclas[pg.K_UP] or teclas[pg.K_w]:
             self.y -= self.velo
