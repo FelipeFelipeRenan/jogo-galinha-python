@@ -2,7 +2,6 @@ import pygame as pg
 
 # imagens de carros no metodo pg.image.load("carroNovo.png")
 
-
 class Carro(pg.sprite.Sprite):
     def __init__(self, quantidade, nivel):
         super().__init__()

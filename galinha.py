@@ -9,7 +9,6 @@ class Galinha(pg.sprite.Sprite):
         self.width = 60
         self.height = 60
 
-        # Imagem do ser de asas bicudo aqui #
         self.right = pg.image.load("DW1.png")
         self.left = pg.image.load("EW1.png")
         self.cococo = pg.image.load("DI1.png")

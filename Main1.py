@@ -72,7 +72,7 @@ def teclaSecreta():
 
 def instrucoes():
     global click
-    tela.image = tela.imagem5
+    tela.image = tela.imagem4
     tela_group.draw(tela_jogo)
 
     font = pg.font.Font('visitor2.ttf', 32)
@@ -107,8 +107,6 @@ def vitoria():
         galinha.kill()
         carros_group.empty()
 
-        #tela.image = tela.imagem4
-
         font = pg.font.Font('visitor2.ttf', 32)
         mx, my = pg.mouse.get_pos()  # checar posições do mouse
 
@@ -130,7 +128,12 @@ def vitoria():
                 if event.button == 1:
                     click = True
 
-        #escrever texto de vitória #############################
+        v = pg.Rect(250, 265, 350, 70)  # botões
+        pg.draw.rect(tela_jogo, (255, 255, 255), v)
+
+        font = pg.font.Font('visitor2.ttf', 100)
+        escrever('Vitória', font, (110, 110, 110), tela_jogo, 425, 300)
+
         pg.display.update()
 
 LARGURA = 600
