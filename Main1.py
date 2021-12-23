@@ -67,7 +67,7 @@ def mudarLevel():
 
 
 def teclaSecreta():
-    galinha.x = LARGURA + 150
+    galinha.x = LARGURA + 200
 
 
 def instrucoes():
