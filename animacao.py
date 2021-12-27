@@ -9,8 +9,8 @@ class Animacao(pg.sprite.Sprite):
         self.width = 60
         self.height = 60
         self.images = []
-        self.frame1 = pg.image.load('DI3.png')
-        self.frame2 = pg.image.load('DI1.png')
+        self.frame1 = pg.image.load('images/DI3.png')
+        self.frame2 = pg.image.load('images/DI1.png')
         self.frame1 = pg.transform.scale(self.frame1, (self.width, self.height))
         self.frame2 = pg.transform.scale(self.frame2, (self.width, self.height))
 

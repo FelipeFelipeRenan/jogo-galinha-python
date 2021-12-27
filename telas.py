@@ -4,10 +4,10 @@ import pygame as pg
 class Tela(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.imagem1 = pg.image.load("bg1.png")
-        self.imagem2 = pg.image.load("over.png")
-        self.imagem3 = pg.image.load("bg2.png")
-        self.imagem4 = pg.image.load("Tutorial.png")
+        self.imagem1 = pg.image.load("images/bg1.png")
+        self.imagem2 = pg.image.load("images/over.png")
+        self.imagem3 = pg.image.load("images/bg2.png")
+        self.imagem4 = pg.image.load("images/Tutorial.png")
 
         self.imagem1 = pg.transform.scale(self.imagem1, (850, 600))
         self.imagem2 = pg.transform.scale(self.imagem2, (850, 600))

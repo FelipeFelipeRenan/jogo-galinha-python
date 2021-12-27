@@ -9,9 +9,9 @@ class Galinha(pg.sprite.Sprite):
         self.width = 60
         self.height = 60
 
-        self.right = pg.image.load("DW1.png")
-        self.left = pg.image.load("EW1.png")
-        self.cococo = pg.image.load("DI1.png")
+        self.right = pg.image.load("images/DW1.png")
+        self.left = pg.image.load("images/EW1.png")
+        self.cococo = pg.image.load("images/DI1.png")
 
         self.right = pg.transform.scale(self.right, (self.width, self.height))
         self.left = pg.transform.scale(self.left, (self.width, self.height))
