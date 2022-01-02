@@ -26,6 +26,7 @@ def jogo():
         utils.galinha_group.update()
         utils.mudarLevel()
         utils.galinhabater()
+        #utils.animacao_move()
         utils.carros_group.update()
         utils.vitoria()
         pg.display.update()
