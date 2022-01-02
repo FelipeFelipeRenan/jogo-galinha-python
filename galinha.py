@@ -1,5 +1,6 @@
 import pygame as pg
 
+
 class Galinha(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
