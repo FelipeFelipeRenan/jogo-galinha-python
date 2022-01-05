@@ -84,28 +84,24 @@ class Galinha(pg.sprite.Sprite):
         if teclas[pg.K_LEFT] or teclas[pg.K_a]:
             self.x -= self.velo
             self.walk_right = False
-            self.walk_idle = False
             self.walk_left = True
             self.walkLeft()
 
         elif teclas[pg.K_RIGHT] or teclas[pg.K_d]:
             self.x += self.velo
             self.walk_left = False
-            self.walk_idle = False
             self.walk_right = True
             self.walkRight()
 
         elif teclas[pg.K_UP] or teclas[pg.K_w]:
             self.y -= self.velo
-            self.walk_left = False
-            self.walk_right = False
+
             self.walk_idle = True
             self.status_idle()
 
         elif teclas[pg.K_DOWN] or teclas[pg.K_s]:
             self.y += self.velo
-            self.walk_left = False
-            self.walk_right = False
+
             self.walk_idle = True
             self.status_idle()
 
