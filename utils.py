@@ -147,9 +147,9 @@ def menu():
 
         menu_animacao()
 
-        m = pg.Rect(5, 30, 825, 40)
+        m = pg.Rect(0, 30, 850, 40)
         pg.draw.rect(tela_jogo, (230, 210, 100), m)
-        escrever('PORQUE A GALINHA ATRAVESSOU A RUA?', font, (110, 110, 110), tela_jogo, 420, 50)
+        escrever('PORQUE A GALINHA ATRAVESSOU A RUA?', font, (110, 110, 110), tela_jogo, 430, 50)
 
         mx, my = pg.mouse.get_pos()  # checar posições do mouse
 
