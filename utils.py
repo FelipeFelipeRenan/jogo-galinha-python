@@ -46,11 +46,12 @@ def galinhabater():
 
             click = False
             for event in pg.event.get():
-                if event.type == QUIT:
-                    pg.quit()
                 if event.type == MOUSEBUTTONDOWN:  # quando clico o botão do mouse esq
                     if event.button == 1:
                         click = True
+                if event.type == QUIT:
+                    pg.quit()
+
         pg.display.update()
 
 
@@ -148,7 +149,7 @@ def menu():
 
     while True:
         # adiciona tela de fundo
-        tela.image = tela.imagem1
+        tela.image = tela.imagem5
         tela_group.draw(tela_jogo)
 
         menu_animacao()

@@ -114,7 +114,7 @@ class Galinha(pg.sprite.Sprite):
 
     def correcao(self):
         if self.x - self.width/2 < 0:
-            self.x = self.width
+            self.x = self.width/2
 
         elif self.x + self.width/2 >= 800 + 200:
             self.x = 800 - self.width/2
