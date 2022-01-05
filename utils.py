@@ -10,18 +10,23 @@ from Main1 import jogo
 def galinhabater():
     global tela, vidas, galinha, carro_1, carro_2, carro_3, carro_4, carros_group, click
 
-    if galinha.rect.colliderect(carro_1) or galinha.rect.colliderect(carro_2) or galinha.rect.colliderect(carro_3) or \
-            galinha.rect.colliderect(carro_4):
-        galinha.x = 0
-        vidas -= 1
-        font = pg.font.Font('visitor2.ttf', 32)
-        text = font.render("Vidas " + str(vidas), True, (110, 110, 100), (230, 210, 100))
+    font = pg.font.Font('visitor2.ttf', 32)
+
+    if vidas > 0:
+        text = font.render("Vidas " + str(vidas), True, (110, 110, 100), (234, 218, 96))
         textRect = text.get_rect()
         textRect.topleft = (60, 120)
         tela.image.blit(text, textRect)
 
+    if galinha.rect.colliderect(carro_1) or galinha.rect.colliderect(carro_2) or galinha.rect.colliderect(carro_3) or \
+            galinha.rect.colliderect(carro_4):
+
+        vidas -= 1
+        galinha.x = 0
+
         if vidas <= 0:
             vidas = 0
+
             galinha.kill()
             carros_group.empty()
 
@@ -138,7 +143,8 @@ def menu_animacao():
 
 def menu():
     global click, vidas, carro_1, carro_2, carro_3, carro_4
-    vidas = 6
+
+    vidas = 5
 
     while True:
         # adiciona tela de fundo
@@ -225,6 +231,8 @@ pg.init()
 tela_jogo = pg.display.set_mode((ALTURA, LARGURA))
 pg.display.set_caption("Porque a galinha atravessou a rua?")
 clock = pg.time.Clock()
+
+vidas = 6
 
 font = pg.font.Font("visitor2.ttf", 52)
 
