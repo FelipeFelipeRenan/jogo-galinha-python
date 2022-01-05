@@ -9,16 +9,14 @@ class Animacao(pg.sprite.Sprite):
         self.width = 60
         self.height = 60
         self.images = []
-        self.imagesesq = []
-        self.imagesdir = []
-        self.frame1 = pg.image.load('images/DI3.png')
-        self.frame2 = pg.image.load('images/DI1.png')
-        self.frame1 = pg.transform.scale(self.frame1, (self.width, self.height))
-        self.frame2 = pg.transform.scale(self.frame2, (self.width, self.height))
 
+        self.frame1 = pg.image.load('images/galinha/idle/idle_1.png')
+        self.frame2 = pg.image.load('images/galinha/idle/idle_2.png')
+        self.frame3 = pg.image.load('images/galinha/idle/idle_3.png')
 
         self.images.append(self.frame1)
         self.images.append(self.frame2)
+        self.images.append(self.frame3)
 
         self.index = 0
 
