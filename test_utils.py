@@ -39,8 +39,3 @@ def test_vitoria():
     assert galinha.x >= LARGURA + 100 
 
 
-def test_collide():
-    vidas = 0
-    galinha.x = carro_1.y
-    galinhabater()
-    assert vidas < 6
